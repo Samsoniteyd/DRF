@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %}
+{% block title %}
+  Login page
+{% endblock title %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-lg-3 col-xl-3">
+        <ul class="list-group">
+          {% if categories %}
+          {% for category in categories %}
+          <a href="{% url 'category' category.slug %}">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              {{category.title}}
+              <span class="badge bg-light rounded-pill"
+                ><i class="{{category.icon}}"></i
+              ></span>
+            </li>
+          </a>
+          {% endfor %}
+            
+          {% else %}
+            
+          {% endif %}
+          
+        </ul>
+      </div> 
+      <div class="col-12 col-sm-12 col-lg-6 col-xl-6">
+        <div
+          style="height: inherit"
+          class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light"
+          data-src=" {% static 'image/c1.jpg' %} "
+          uk-img
+        >
+          <img
+            src=" {% static 'image/c1.jpg' %} "
+            style="width: 100%; height: 100%"
+          />
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-lg-3 col-xl-3">
+        <div class="row">
+          <div class="col-12">
+            <div class="card" style="max-width: 100%">
+              <div class="card-body">
+                <h3 class="card-title"><strong>Shoppit</strong></h3>
+                <h6 class="card-subtitle mb-2 text-muted">Buy with Ease</h6>
+                <p class="card-text">
+                  Shoppit is your number one online shopping platform which makes
+                  purchasing items you love so easy.
+                </p>
+      
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="row justify-content-center">
+      <br>
+      <h3 style="margin-top: 30px">Top Deals</h3>
+    </div>
+    <div class="row justify-content-center">
+
+     {% if top_deals %}
+       
+     {% for product in top_deals %}
+      <div class="col-12 col-sm-6 col-lg-2 col-xl-2">
+        <a href="{% url 'detail' product.slug %}">
+          <div class="card position-relative" style="width: 100%">
+            <span class="discount"> -30% </span>
+            <img src="" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <p class="card-title">{{product.name}}</p>
+              <h4 class="card-text">${{ product.price|floatformat:2 }}</h4>
+              <h6 class="card-text" style="text-decoration: line-through">
+                ${{product.old_price|floatformat:2}}
+              </h6>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+     {% else %}
+     <p class="bg-light text-center">no deal</p>
+       
+     {% endif %}
+        
+      
+    </div>
+  
+     <div class="row">  
+      <h3 style="margin-top: 30px">Top Categories</h3>
+    </div>
+    <div class="row justify-content-center">
+
+      {% if categories %}
+      {% for category in categories %}
+      <div class="col-12 col-sm-6 col-lg-2 col-xl-2">
+        <a href = "">
+        <div class="card" style="width: 100%">
+          <img
+            src="{{category.featured_product.image.url}}"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <p class="card-title">{{category.title}}</p>
+          </div>
+        </div>
+        </a>
+      </div>
+      {% endfor %}
+      {% else %}
+        
+      {% endif %}
+      
+
+
+    
+    </div> 
+  
+    <div class="row justify-content-center">
+      <h3>Available Products</h3>
+    </div>
+    <div class="row justify-content-center">
+
+      {% if products %}
+      {% for product in products %}
+      <div class="col-12 col-sm-6 col-lg-2 col-xl-2">
+        <a href="{% url 'detail' product.slug %}">
+          <div class="card position-relative" style="width: 100%">
+
+            <img src="{{product.img}}" class="card-img-top" alt="..." >
+            <div class="card-body">
+              <p class="card-title">{{product.name}}</p>
+              <h4 class="card-text">${{ product.price|floatformat:2 }}</h4>
+              
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+      {% else %}
+        
+      {% endif %} 
+
+
+     
+    </div> 
+  
+  </div>
+  
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock content %}

@@ -1,0 +1,88 @@
+ /* index html  */
+ /* index html  */
+ /* index html  */
+
+ 
+    .discount {
+      width: 50px;
+      height: 25px;
+      background-color: #f0f8ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      right: 0px;
+      border-radius: 15px;
+    }
+   
+    i {
+      color: black;
+      font-size: 25px;
+    }
+    .row{ 
+      border: 1px soild lightgray !important;
+      margin-top: 20px !important;
+    }
+
+
+    /* detail html  */
+    /* detail html  */
+    /* detail html  */
+    #imageContainer {
+      width: 100%;
+      height: 100%;
+    }
+    #imageContainer img {
+      width: 100%;
+      height: 100%;
+    }
+    #desc {
+      text-align: justify;
+    }
+    #addToCart {
+      width: 100%;
+      height: 50px;
+      border-radius: 10px;
+      background-color: lightskyblue;
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+      justify-content: space-around;
+      cursor: pointer;
+    }
+    #updateCart {
+      width: 150px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: lightskyblue;
+      margin: auto;
+      display: none;
+    }
+    #substract,
+    #quantity,
+    #add {
+      width: 50px;
+      height: inherit;
+      border: 2px solid white;
+      display: flex;
+      color: white;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    #heart {
+      cursor: pointer;
+      font-size: 85px;
+      color: magenta;
+    }
+    .alert{
+        display: none;
+    }
+    
+    .seen{
+      display: none;
+    }
+  
+  
